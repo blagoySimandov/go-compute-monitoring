@@ -1,0 +1,19 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "matrix-compute"
+    static_configs:
+      - targets: ["matrix-compute:8080"]
+
+remote_write:
+  - url: "http://localhost:3000/api/prom/push"
+    basic_auth:
+      username: "admin"
+      password: "admin"
+
+remote_read:
+  - url: "http://localhost:3000/api/prom/read"
+    basic_auth:
+      username: "admin"
+      password: "admin"
