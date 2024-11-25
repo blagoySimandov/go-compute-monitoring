@@ -7,9 +7,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 )
 
-const (
-	MatrixSize = 500 // size of a *square* matrix
-)
+var MatrixSize int = 500 // size of a *square* matrix
 
 func GenerateMatrix() [][]float64 {
 	matrix := make([][]float64, MatrixSize)
