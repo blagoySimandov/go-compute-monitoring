@@ -17,6 +17,8 @@ type Metrics struct {
 	MemoryUsage     prometheus.Gauge
 	GoroutinesCount prometheus.Gauge
 	MatrixGenTime   prometheus.Histogram
+	MatrixSize      prometheus.Gauge
+	MatrixCount     prometheus.Counter
 }
 
 func NewMetrics() *Metrics {
@@ -46,6 +48,14 @@ func NewMetrics() *Metrics {
 			Name:    "matrix_generation_duration_seconds",
 			Help:    "Time taken to generate matrices",
 			Buckets: []float64{.005, .01, .025, .05, .1, .25, .5, 1, 2.5, 5, 10},
+		}),
+		MatrixSize: promauto.NewGauge(prometheus.GaugeOpts{
+			Name: "matrix_size",
+			Help: "Current size of the square matrix",
+		}),
+		MatrixCount: promauto.NewCounter(prometheus.CounterOpts{
+			Name: "matrix_computation_count",
+			Help: "Total number of matrices computed",
 		}),
 	}
 }
