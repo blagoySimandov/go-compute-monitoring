@@ -11,8 +11,7 @@ import (
 )
 
 var (
-	baseMatrixSize int32 = 100
-	maxMatrixSize  int32 = 5000
+	baseMatrixSize int32 = 10
 	growthRate     int32 = 20
 )
 
