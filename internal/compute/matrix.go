@@ -90,7 +90,6 @@ func GraduallyIncreaseMatrixSize() func() {
 func PerformComputation(computeDuration prometheus.Histogram, computeOps prometheus.Counter, matrixGenTime prometheus.Histogram, matrixSizeGauge prometheus.Gauge, matrixCount prometheus.Counter) {
 	size := getCurrentMatrixSize()
 	matrixSizeGauge.Set(float64(size))
-
 	genStart := time.Now()
 	matrix1 := GenerateMatrix(size)
 	matrix2 := GenerateMatrix(size)

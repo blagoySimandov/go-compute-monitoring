@@ -6,16 +6,3 @@ scrape_configs:
     static_configs:
       - targets:
           - "matrix-compute:8080"
-          - "host.docker.internal:8080"
-
-remote_write:
-  - url: "http://localhost:3000/api/prom/push"
-    basic_auth:
-      username: "admin"
-      password: "admin"
-
-remote_read:
-  - url: "http://localhost:3000/api/prom/read"
-    basic_auth:
-      username: "admin"
-      password: "admin"
